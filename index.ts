@@ -3,7 +3,6 @@ const app: Application = express();
 
 import cron from "node-cron";
 import nodemailer from "nodemailer";
-import { text } from "stream/consumers";
 
 //implementing mail sending functionality
 
@@ -34,7 +33,7 @@ function sendMailThroughCron() {
 
 //Scheduling a cronjob
 
-cron.schedule("*/30 * * * * *", () => {
+cron.schedule("* */15 * * * *", () => {
   sendMailThroughCron();
   console.log("rsending a mail every 30 seconds");
 });
